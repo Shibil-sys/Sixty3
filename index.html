@@ -1,134 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SIXTY3 — Arabic Oud Luxury</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'ESSENCE | The Art of Fragrance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #c5a059; --glass: rgba(255, 255, 255, 0.05); }
+        
+        body { background: #050505; color: white; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        /* Luxury Hero Animation */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            letter-spacing: 15px;
+            animation: fadeInLetter 3s ease-out;
+            margin: 0;
+        }
 
-body {
-  background:#0b0b0b;
-  color:#eaeaea;
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-}
+        /* Glassmorphism Feature Section */
+        .feature-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 40px;
+            margin: -50px 5% 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            border-radius: 5px;
+        }
 
-header {
-  padding:30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+        /* Animations */
+        @keyframes fadeInLetter {
+            from { opacity: 0; letter-spacing: 30px; filter: blur(10px); }
+            to { opacity: 1; letter-spacing: 15px; filter: blur(0); }
+        }
 
-header h1 {
-  font-family:'Cormorant Garamond',serif;
-  letter-spacing:4px;
-}
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: 1.5s all ease; }
+        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
 
-nav a {
-  color:#bbb;
-  margin-left:20px;
-  text-decoration:none;
-  font-size:0.9rem;
-}
+        .btn-gold {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: 0.5s;
+            margin-top: 30px;
+        }
 
-.hero {
-  padding:100px 30px;
-  text-align:center;
-}
-
-.hero h2 {
-  font-family:'Cormorant Garamond',serif;
-  font-size:4rem;
-}
-
-.hero p {
-  margin-top:20px;
-  opacity:0.8;
-}
-
-.hero img {
-  width:100%;
-  max-width:400px;
-  margin-top:40px;
-}
-
-section {
-  padding:120px 30px;
-  text-align:center;
-}
-
-.card img {
-  width:100%;
-  max-width:300px;
-}
-
-footer {
-  padding:80px 30px;
-  text-align:center;
-  font-family:'Cormorant Garamond',serif;
-  letter-spacing:2px;
-}
-</style>
+        .btn-gold:hover { background: var(--gold); color: black; box-shadow: 0 0 20px var(--gold); }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <h1>SIXTY3</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Collection</a>
-    <a href="#">About</a>
-  </nav>
-</header>
+    <section class="hero">
+        <h1 id="brand-logo">L'ESSENCE</h1>
+        <p style="letter-spacing: 5px; font-weight: 200;">DEFINING LEGENDARY SINCE 2026</p>
+        <a href="#collection" class="btn-gold">Explore the Collection</a>
+    </section>
 
-<section class="hero">
-  <h2>Sixty3 Oud Scents</h2>
-  <p>Modern Arabic perfumery. Depth, power, identity.</p>
-  <img src="img-1.jpg" alt="SIXTY3">
-</section>
+    <div class="feature-box">
+        <div>
+            <h3 style="color: var(--gold);">Rare Oils</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Sourced from the deepest valleys of Grasse.</p>
+        </div>
+        <div>
+            <h3 style="color: var(--gold);">Legacy Design</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Bottles crafted by master glass artisans.</p>
+        </div>
+        <div>
+            <h3 style="color: var(--gold);">Elite Service</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Private concierge for your signature scent.</p>
+        </div>
+    </div>
 
-<section>
-  <div class="card">
-    <img src="img-2.jpg">
-    <p>Signature Oud</p>
-  </div>
-</section>
-
-<footer>
-  SIXTY3 — THE POWER OF OUD
-</footer>
-
-<!-- GSAP -->
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-
-<script>
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from("header", {
-  opacity:0,
-  y:-40,
-  duration:1.5
-});
-
-gsap.from(".hero h2", {
-  opacity:0,
-  y:60,
-  duration:1.8,
-  delay:0.3
-});
-
-gsap.from(".hero img", {
-  opacity:0,
-  scale:1.1,
-  duration:2
-});
-</script>
-
+    <script>
+        // Special Feature: Scroll Reveal Animation
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 150) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
