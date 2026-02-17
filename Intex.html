@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SIXTY3 — Arabic Oud Luxury</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:#0b0b0b;
+  color:#eaeaea;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+header {
+  padding:30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1 {
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:4px;
+}
+
+nav a {
+  color:#bbb;
+  margin-left:20px;
+  text-decoration:none;
+  font-size:0.9rem;
+}
+
+.hero {
+  padding:100px 30px;
+  text-align:center;
+}
+
+.hero h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:4rem;
+}
+
+.hero p {
+  margin-top:20px;
+  opacity:0.8;
+}
+
+.hero img {
+  width:100%;
+  max-width:400px;
+  margin-top:40px;
+}
+
+section {
+  padding:120px 30px;
+  text-align:center;
+}
+
+.card img {
+  width:100%;
+  max-width:300px;
+}
+
+footer {
+  padding:80px 30px;
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:2px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>SIXTY3</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Collection</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Exclusive Oud Scents</h2>
+  <p>Modern Arabic perfumery. Depth, power, identity.</p>
+  <img src="img-1.jpg" alt="SIXTY3">
+</section>
+
+<section>
+  <div class="card">
+    <img src="img-2.jpg">
+    <p>Signature Oud</p>
+  </div>
+</section>
+
+<footer>
+  SIXTY3 — THE POWER OF OUD
+</footer>
+
+<!-- GSAP -->
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from("header", {
+  opacity:0,
+  y:-40,
+  duration:1.5
+});
+
+gsap.from(".hero h2", {
+  opacity:0,
+  y:60,
+  duration:1.8,
+  delay:0.3
+});
+
+gsap.from(".hero img", {
+  opacity:0,
+  scale:1.1,
+  duration:2
+});
+</script>
+
+</body>
+</html>
