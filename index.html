@@ -3,112 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIXTY3 | The New Standard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+    <title>SIXTY3 | Haute Parfumerie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
-        :root { --purple: #bc13fe; --dark: #000; }
-        body { background: var(--dark); color: white; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-
-        /* Cinematic Logo */
-        .hero {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #1a0033 0%, #000 70%);
+        :root { 
+            --deep-purple: #140814; 
+            --accent-purple: #9b59b6;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
-        .logo-container { text-align: center; }
+        body { background: var(--deep-purple); color: #fdfdfd; margin: 0; font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+        
+        /* Navigation */
+        nav { border-bottom: 1px solid var(--border); padding: 25px; text-align: center; letter-spacing: 12px; font-family: 'Playfair Display', serif; font-size: 1.8rem; background: rgba(20, 8, 20, 0.95); position: sticky; top: 0; z-index: 100; }
+        
+        .main-container { max-width: 1100px; margin: auto; padding: 40px 20px; }
 
-        .sixty3-logo {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 10vw;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--purple);
-            letter-spacing: 20px;
-            position: relative;
-            animation: glowText 3s ease-in-out infinite alternate;
-        }
+        /* Hero Editorial Style */
+        .hero-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; margin-bottom: 100px; }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; font-weight: 400; margin-bottom: 20px; }
+        .hero-img img { width: 100%; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.7); }
 
-        @keyframes glowText {
-            from { text-shadow: 0 0 10px var(--purple); opacity: 0.5; }
-            to { text-shadow: 0 0 40px var(--purple), 0 0 80px var(--purple); color: white; opacity: 1; }
-        }
+        /* Notes Section (The Reference Style) */
+        .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; border-top: 1px solid var(--border); padding-top: 40px; margin-top: 50px; }
+        .note-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
+        .note-item h3 { color: var(--accent-purple); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* The Boutique Path */
-        .collection-section { padding: 50px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        /* Product Path (The Excel System) */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 80px; }
+        .perfume-card { border: 1px solid var(--border); padding: 15px; text-align: center; transition: 0.4s; }
+        .perfume-card:hover { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(155, 89, 182, 0.3); }
+        .perfume-card img { width: 100%; height: 350px; object-fit: cover; margin-bottom: 15px; }
 
-        .perfume-card {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-            border: 1px solid #111;
-            background: #050505;
-        }
+        /* Contact Section */
+        #contact { background: #0a040a; padding: 80px 5%; margin-top: 100px; border-top: 1px solid var(--border); }
+        .contact-link { color: white; text-decoration: none; display: block; margin: 15px 0; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s; }
+        .contact-link:hover { color: var(--accent-purple); }
 
-        .perfume-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(50%);
-            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .perfume-card:hover img {
-            filter: grayscale(0%) brightness(100%);
-            transform: scale(1.1);
-        }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(188, 19, 254, 0.3));
-            transform: translateY(100px);
-            transition: 0.5s;
-        }
-
-        .perfume-card:hover .card-overlay { transform: translateY(0); }
-
-        .name { font-family: 'Syncopate'; font-size: 1.5rem; color: var(--purple); }
+        .fade-in { animation: fadeInUp 1.2s ease forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="logo-container">
-            <div class="sixty3-logo">SIXTY3</div>
-            <p style="letter-spacing: 10px; font-weight: 100; margin-top: 20px;">LEGENDARY FRAGRANCE</p>
-        </div>
-    </section>
+    <nav>SIXTY3</nav>
 
-    <div class="collection-section">
-        <div class="grid" id="excel-data-path">
+    <div class="main-container">
+        <section class="hero-section fade-in">
+            <div class="hero-text">
+                <h1>A smoldering scent fusing dark plum, florals and woods</h1>
+                <p style="opacity: 0.6; font-weight: 200;">Crafted for the legendary. SIXTY3 is an olfactory journey through the deepest midnight.</p>
+                <button style="background: white; border: none; padding: 15px 40px; letter-spacing: 3px; cursor: pointer; margin-top: 20px;">SHOP NOW</button>
             </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Sixty3 Main">
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;">Notes</h2>
+            <div class="notes-grid">
+                <p style="opacity: 0.6;">The architecture of SIXTY3 is built on rare, nocturnal ingredients sourced from the furthest corners of the globe.</p>
+                <div>
+                    <div class="note-item"><h3>Top</h3><p>Black Cherry & Saffron</p></div>
+                    <div class="note-item"><h3>Heart</h3><p>Midnight Rose & Violet</p></div>
+                    <div class="note-item"><h3>Base</h3><p>Oud Wood & White Musk</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in" style="margin-top: 100px;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; text-align: center;">The Collection</h2>
+            <div class="product-grid" id="excel-data">
+                </div>
+        </section>
     </div>
 
+    <footer id="contact">
+        <div style="max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h3 style="font-family: 'Playfair Display'; letter-spacing: 3px;">SIXTY3</h3>
+                <p style="opacity: 0.5; font-size: 0.8rem;">The New Standard in Luxury Fragrance.</p>
+            </div>
+            <div>
+                <a href="tel:7560983177" class="contact-link">📞 +91 7560983177</a>
+                <a href="https://wa.me/917560983177" class="contact-link">💬 WhatsApp Direct</a>
+                <a href="mailto:shibilpop7560@gmail.com" class="contact-link">✉️ shibilpop7560@gmail.com</a>
+                <a href="https://instagram.com/shybi._" class="contact-link">📸 Instagram: shybi._</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        const collection = [
-            { name: "NOIR 63", price: "$290", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" },
-            { name: "VIOLET MIST", price: "$210", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" }
+        // THE EXCEL TABLE (Reduce your work here)
+        const products = [
+            { name: "NOIR 63", price: "₹12,500", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" },
+            { name: "VIOLET MIST", price: "₹9,800", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80" },
+            { name: "AMBER DUSK", price: "₹11,200", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=500&q=80" }
         ];
 
-        const container = document.getElementById('excel-data-path');
-        collection.forEach(p => {
+        const container = document.getElementById('excel-data');
+        products.forEach(p => {
             container.innerHTML += `
                 <div class="perfume-card">
                     <img src="${p.img}" alt="${p.name}">
-                    <div class="card-overlay">
-                        <div class="name">${p.name}</div>
-                        <div style="font-size: 1.2rem; margin-top: 10px;">${p.price}</div>
-                    </div>
+                    <h3 style="font-family: 'Playfair Display'; letter-spacing: 2px;">${p.name}</h3>
+                    <p style="color: var(--accent-purple); font-weight: bold;">${p.price}</p>
                 </div>
             `;
         });
     </script>
-
 </body>
 </html>
