@@ -3,115 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIXTY3 | Haute Parfumerie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <title>SIXTY3 | The Singular Essence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,900&family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --deep-purple: #140814; 
-            --accent-purple: #9b59b6;
-            --border: rgba(255, 255, 255, 0.1);
+            --deep-purple: #0a040a; 
+            --liquid-purple: #6c3483;
+            --neon-purple: #bc13fe;
+            --gold: #d4af37;
         }
 
-        body { background: var(--deep-purple); color: #fdfdfd; margin: 0; font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-        
-        /* Navigation */
-        nav { border-bottom: 1px solid var(--border); padding: 25px; text-align: center; letter-spacing: 12px; font-family: 'Playfair Display', serif; font-size: 1.8rem; background: rgba(20, 8, 20, 0.95); position: sticky; top: 0; z-index: 100; }
-        
-        .main-container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--deep-purple); color: white; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-        /* Hero Editorial Style */
-        .hero-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; margin-bottom: 100px; }
-        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; font-weight: 400; margin-bottom: 20px; }
-        .hero-img img { width: 100%; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.7); }
+        /* Luxury Loader Animation */
+        .loader {
+            position: fixed; height: 100vh; width: 100%; background: black;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; animation: fadeOut 2s forwards 3s;
+        }
+        .loader h1 { font-family: 'Playfair Display'; font-size: 3rem; letter-spacing: 20px; color: var(--neon-purple); animation: pulse 2s infinite; }
 
-        /* Notes Section (The Reference Style) */
-        .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; border-top: 1px solid var(--border); padding-top: 40px; margin-top: 50px; }
-        .note-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
-        .note-item h3 { color: var(--accent-purple); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        /* Smooth Scroll Section */
+        section { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 0 10%; }
 
-        /* Product Path (The Excel System) */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 80px; }
-        .perfume-card { border: 1px solid var(--border); padding: 15px; text-align: center; transition: 0.4s; }
-        .perfume-card:hover { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(155, 89, 182, 0.3); }
-        .perfume-card img { width: 100%; height: 350px; object-fit: cover; margin-bottom: 15px; }
+        /* The Liquid Background Effect */
+        .liquid-bg {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--liquid-purple) 0%, transparent 70%);
+            filter: blur(80px); opacity: 0.4; z-index: -1;
+            animation: float 10s infinite alternate;
+        }
 
-        /* Contact Section */
-        #contact { background: #0a040a; padding: 80px 5%; margin-top: 100px; border-top: 1px solid var(--border); }
-        .contact-link { color: white; text-decoration: none; display: block; margin: 15px 0; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s; }
-        .contact-link:hover { color: var(--accent-purple); }
+        /* Typography Styles */
+        .brand-title { font-family: 'Playfair Display', serif; font-size: 8vw; letter-spacing: 30px; text-transform: uppercase; color: white; position: relative; }
+        .brand-title span { color: var(--neon-purple); text-shadow: 0 0 30px var(--neon-purple); }
 
-        .fade-in { animation: fadeInUp 1.2s ease forwards; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .editorial-text { max-width: 500px; font-weight: 100; line-height: 2; letter-spacing: 2px; }
+
+        /* Animation Keyframes */
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @keyframes float { 
+            0% { transform: translate(-10%, -10%) scale(1); } 
+            100% { transform: translate(10%, 20%) scale(1.2); } 
+        }
+
+        /* Glassmorphism Product Card */
+        .bottle-focus {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .bottle-focus:hover { border-color: var(--neon-purple); box-shadow: 0 0 50px rgba(188, 19, 254, 0.2); }
+
+        .btn-buy {
+            margin-top: 30px; padding: 15px 50px; background: transparent;
+            border: 1px solid white; color: white; cursor: pointer;
+            transition: 0.4s; letter-spacing: 5px;
+        }
+        .btn-buy:hover { background: var(--neon-purple); border-color: var(--neon-purple); box-shadow: 0 0 20px var(--neon-purple); }
     </style>
 </head>
 <body>
 
-    <nav>SIXTY3</nav>
+    <div class="loader"><h1>SIXTY3</h1></div>
 
-    <div class="main-container">
-        <section class="hero-section fade-in">
-            <div class="hero-text">
-                <h1>A smoldering scent fusing dark plum, florals and woods</h1>
-                <p style="opacity: 0.6; font-weight: 200;">Crafted for the legendary. SIXTY3 is an olfactory journey through the deepest midnight.</p>
-                <button style="background: white; border: none; padding: 15px 40px; letter-spacing: 3px; cursor: pointer; margin-top: 20px;">SHOP NOW</button>
-            </div>
-            <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Sixty3 Main">
-            </div>
-        </section>
+    <section>
+        <div class="liquid-bg"></div>
+        <div style="text-align: center;">
+            <p style="letter-spacing: 10px; opacity: 0.5; margin-bottom: 20px;">LA MAISON</p>
+            <h1 class="brand-title">SIXTY<span>3</span></h1>
+            <p style="margin-top: 20px; font-weight: 100; letter-spacing: 5px;">THE SOLITARY MASTERPIECE</p>
+        </div>
+    </section>
 
-        <section class="fade-in">
-            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;">Notes</h2>
-            <div class="notes-grid">
-                <p style="opacity: 0.6;">The architecture of SIXTY3 is built on rare, nocturnal ingredients sourced from the furthest corners of the globe.</p>
-                <div>
-                    <div class="note-item"><h3>Top</h3><p>Black Cherry & Saffron</p></div>
-                    <div class="note-item"><h3>Heart</h3><p>Midnight Rose & Violet</p></div>
-                    <div class="note-item"><h3>Base</h3><p>Oud Wood & White Musk</p></div>
-                </div>
+    <section style="background: #050205;">
+        <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+            <div class="editorial-text">
+                <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 30px;">Purple <br> <i>Midnight</i></h2>
+                <p>SIXTY3 is not a collection. It is a singular obsession. Encapsulating the deep violet hues of a Mediterranean dusk, this fragrance is a heavy, intoxicating veil of plum, oud, and shadow.</p>
             </div>
-        </section>
-
-        <section class="fade-in" style="margin-top: 100px;">
-            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; text-align: center;">The Collection</h2>
-            <div class="product-grid" id="excel-data">
-                </div>
-        </section>
-    </div>
-
-    <footer id="contact">
-        <div style="max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
-            <div>
-                <h3 style="font-family: 'Playfair Display'; letter-spacing: 3px;">SIXTY3</h3>
-                <p style="opacity: 0.5; font-size: 0.8rem;">The New Standard in Luxury Fragrance.</p>
-            </div>
-            <div>
-                <a href="tel:7560983177" class="contact-link">📞 +91 7560983177</a>
-                <a href="https://wa.me/917560983177" class="contact-link">💬 WhatsApp Direct</a>
-                <a href="mailto:shibilpop7560@gmail.com" class="contact-link">✉️ shibilpop7560@gmail.com</a>
-                <a href="https://instagram.com/shybi._" class="contact-link">📸 Instagram: shybi._</a>
+            <div class="bottle-focus">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" alt="Sixty3 Bottle" style="width: 100%; border-radius: 10px;">
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // THE EXCEL TABLE (Reduce your work here)
-        const products = [
-            { name: "NOIR 63", price: "₹12,500", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" },
-            { name: "VIOLET MIST", price: "₹9,800", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80" },
-            { name: "AMBER DUSK", price: "₹11,200", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=500&q=80" }
-        ];
+    <section>
+        <div class="liquid-bg" style="right: 10%; top: 20%; background: radial-gradient(circle, #3e0b5e 0%, transparent 70%);"></div>
+        <div style="text-align: center;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; letter-spacing: 5px;">A LEGEND IN A BOTTLE</h2>
+            <p style="margin: 20px 0; opacity: 0.6;">Exclusively available through our private concierge.</p>
+            <a href="https://wa.me/917560983177" style="text-decoration: none;">
+                <button class="btn-buy">RESERVE SIXTY3</button>
+            </a>
+            <div style="margin-top: 50px;">
+                <p style="font-size: 0.7rem; opacity: 0.4;">© 2026 SIXTY3 PARFUMS | +91 7560983177</p>
+            </div>
+        </div>
+    </section>
 
-        const container = document.getElementById('excel-data');
-        products.forEach(p => {
-            container.innerHTML += `
-                <div class="perfume-card">
-                    <img src="${p.img}" alt="${p.name}">
-                    <h3 style="font-family: 'Playfair Display'; letter-spacing: 2px;">${p.name}</h3>
-                    <p style="color: var(--accent-purple); font-weight: bold;">${p.price}</p>
-                </div>
-            `;
-        });
-    </script>
 </body>
 </html>
