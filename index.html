@@ -3,107 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'ESSENCE | The Art of Fragrance</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <title>SIXTY3 | The Legendary Essence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #c5a059; --glass: rgba(255, 255, 255, 0.05); }
-        
-        body { background: #050505; color: white; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        :root { 
+            --gold: #c5a059; 
+            --purple-glow: rgba(128, 0, 128, 0.4);
+            --black: #050505;
+        }
 
-        /* Luxury Hero Animation */
-        .hero {
+        body { background: var(--black); color: white; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+        /* Luxury Header */
+        header {
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), 
+            background: linear-gradient(rgba(10, 0, 20, 0.7), rgba(0,0,0,0.8)), 
                         url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            text-align: center;
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
-        .hero h1 {
+        .brand-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
+            font-size: 6rem;
             color: var(--gold);
-            letter-spacing: 15px;
-            animation: fadeInLetter 3s ease-out;
-            margin: 0;
+            letter-spacing: 12px;
+            text-shadow: 0 0 30px var(--purple-glow);
+            animation: breathe 4s infinite alternate;
         }
 
-        /* Glassmorphism Feature Section */
-        .feature-box {
-            background: var(--glass);
+        /* Purple Mist Effect */
+        @keyframes breathe {
+            from { text-shadow: 0 0 20px var(--purple-glow); transform: scale(1); }
+            to { text-shadow: 0 0 50px rgba(186, 85, 211, 0.6); transform: scale(1.02); }
+        }
+
+        .grid-container { padding: 100px 5%; background: linear-gradient(to bottom, #050505, #0f001a); }
+        
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+
+        .perfume-card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            padding: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 40px;
-            margin: -50px 5% 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            border-radius: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeInLetter {
-            from { opacity: 0; letter-spacing: 30px; filter: blur(10px); }
-            to { opacity: 1; letter-spacing: 15px; filter: blur(0); }
-        }
-
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: 1.5s all ease; }
-        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-
-        .btn-gold {
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 15px 40px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
             transition: 0.5s;
-            margin-top: 30px;
         }
 
-        .btn-gold:hover { background: var(--gold); color: black; box-shadow: 0 0 20px var(--gold); }
+        .perfume-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(128, 0, 128, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .perfume-card img { width: 100%; height: 400px; object-fit: cover; }
+
+        .price-tag { color: var(--gold); font-size: 1.2rem; margin-top: 15px; }
+
+        .btn-discover {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold);
+            padding: 12px 30px; margin-top: 20px; cursor: pointer; transition: 0.3s;
+        }
+
+        .btn-discover:hover { background: var(--gold); color: black; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1 id="brand-logo">L'ESSENCE</h1>
-        <p style="letter-spacing: 5px; font-weight: 200;">DEFINING LEGENDARY SINCE 2026</p>
-        <a href="#collection" class="btn-gold">Explore the Collection</a>
-    </section>
+    <header>
+        <div class="brand-name">SIXTY3</div>
+        <p style="letter-spacing: 8px; opacity: 0.8;">ELITE FRAGRANCE HOUSE</p>
+    </header>
 
-    <div class="feature-box">
-        <div>
-            <h3 style="color: var(--gold);">Rare Oils</h3>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Sourced from the deepest valleys of Grasse.</p>
-        </div>
-        <div>
-            <h3 style="color: var(--gold);">Legacy Design</h3>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Bottles crafted by master glass artisans.</p>
-        </div>
-        <div>
-            <h3 style="color: var(--gold);">Elite Service</h3>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Private concierge for your signature scent.</p>
-        </div>
+    <div class="grid-container">
+        <div class="product-grid" id="main-collection">
+            </div>
     </div>
 
     <script>
-        // Special Feature: Scroll Reveal Animation
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.scroll-reveal');
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 150) {
-                    reveal.classList.add('active');
-                }
-            });
+        /* THE SIXTY3 PRODUCT PATH - Update your images here */
+        const collection = [
+            { name: "Oud Royale", price: "₹12,500", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" },
+            { name: "Midnight Rose", price: "₹8,900", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80" },
+            { name: "Purple Mist", price: "₹10,200", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        const grid = document.getElementById('main-collection');
+        collection.forEach(item => {
+            grid.innerHTML += `
+                <div class="perfume-card">
+                    <img src="${item.img}" alt="${item.name}">
+                    <h2 style="font-family: 'Cormorant Garamond'; color: #c5a059;">${item.name}</h2>
+                    <div class="price-tag">${item.price}</div>
+                    <button class="btn-discover">Discover</button>
+                </div>
+            `;
         });
     </script>
 </body>
